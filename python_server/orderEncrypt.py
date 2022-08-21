@@ -23,17 +23,6 @@ def setup_args():
     return args
 
 
-def aes_sha256(plain_text, key, iv):
-    encrypted = AES.new(key=key, mode=AES.MODE_CBC, iv=iv).encrypt(plain_text)
-    return encrypted
-
-
-def encrypt(plain_text, key, iv):
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    print(cipher)
-    return b64encode(iv + cipher.encrypt(pad(plain_text), AES.block_size))
-
-
 class AESCipher:
     def __init__(self, key):
         password = key.encode("utf-8")
